@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "factorial.h": "c"
+        "factorial.h": "c",
+        "typeinfo": "c",
+        "main.c": "cpp"
     }
 }
