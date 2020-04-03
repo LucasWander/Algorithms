@@ -5,3 +5,8 @@
 
 - C
 - C++
+
+## TODO
+
+- Argumentos para o compilador
+- Make File
