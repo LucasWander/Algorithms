@@ -6,9 +6,3 @@
 - C
 - C++
 
-## TODO
-
-- Argumentos para o compilador
-- Make File
-- Remove \n fgets
-- Binary search
