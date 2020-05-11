@@ -2,23 +2,6 @@
 #include "../search.h"
 
 
-
-TEST_CASE("Odd number of items", "") {
-	int size = 5;
-	float arr[5] = {1,2,3,4,5};
-
-	REQUIRE(getMiddleArrayIndex(size) == 2);
-}
-
-TEST_CASE("Even number of items", "") {
-
-	int size = 6;
-	float arr[6] = {1,2,3,4,5,6};
-
-	REQUIRE(getMiddleArrayIndex(size) == 3);
-}
-
-
 TEST_CASE("Testing tests","[search]") {
 
 	int size = 5;

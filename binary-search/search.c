@@ -1,13 +1,9 @@
 #include "search.h"
 
-int getMiddleArrayIndex(int size) {
-	return size/2;
-}
-
 int binarySearch(float *arr, int size, float value) {
-	
+
 	int middle;
-	
+
 	int start = 0;
 	int end = size-1;
 
