@@ -1,4 +1,5 @@
 #/bin/bash
 
-make --file=makefile.test
-./BINARY_SEARCH_TEST
+mkdir testing/build
+make --file=testing/makefile
+./testing/build/BINARY_SEARCH_TEST
