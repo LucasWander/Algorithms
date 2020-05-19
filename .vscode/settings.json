@@ -2,6 +2,7 @@
     "files.associations": {
         "factorial.h": "c",
         "typeinfo": "c",
-        "main.c": "cpp"
+        "main.c": "cpp",
+        "*.test":"makefile"
     }
 }

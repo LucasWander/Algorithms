@@ -1,0 +1,11 @@
+BINARY_SEARCH_TEST: catch.o search.o tests.o
+	g++ main-test.o search.o search.test.o -o BINARY_SEARCH_TEST
+
+tests.o: testing/search.test.cpp
+	g++ -c testing/search.test.cpp
+
+search.o: search.c search.h
+	g++ -c search.c
+
+catch.o: testing/main-test.cpp
+	g++ -c testing/main-test.cpp
