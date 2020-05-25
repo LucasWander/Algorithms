@@ -21,3 +21,6 @@ int listLastValue(ListItem *item);
 
 ListItem* listRemove(ListItem *item, int value);
 
+ListItem* listInsertEnd(ListItem *item, int value);
+
+ListItem* listInsertSorted(ListItem *item, int value);

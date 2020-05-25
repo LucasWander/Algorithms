@@ -61,7 +61,7 @@ void listFree(ListItem *item) {
 }
 
 int listLastValue(ListItem *item) {
-	
+
 	ListItem *aux = item;
 
 
@@ -74,7 +74,7 @@ int listLastValue(ListItem *item) {
 }
 
 ListItem* listRemove(ListItem *item, int value) {
-	
+
 	ListItem *aux = item;
 	ListItem *ant = NULL;
 
@@ -89,12 +89,65 @@ ListItem* listRemove(ListItem *item, int value) {
 	}
 
 
-	if(ant == NULL) 
+	if(ant == NULL)
 		item = aux->next;
-	else 
+	else
 		ant->next = aux->next;
 
 	free(aux);
 
 	return item;
+}
+
+ListItem* listInsertEnd(ListItem *item, int value) {
+
+	ListItem *aux = (ListItem*) malloc(sizeof(ListItem));
+	ListItem *aux2 = item;
+	aux->value = value;
+	aux->next = NULL;
+
+	if(item==NULL) {
+		return aux;
+	}
+
+	while(aux2->next != NULL) {
+		aux2 = aux2->next;
+	}
+
+	aux2->next = aux;
+
+	return item;
+}
+
+
+ListItem* listInsertSorted(ListItem *list, int value) {
+
+	ListItem *aux = list;
+	ListItem *prev = NULL;
+	ListItem *newItem = (ListItem*) malloc(sizeof(ListItem));
+
+
+	newItem->next = NULL;
+	newItem->value = value;
+
+	if(list == NULL) {
+		return newItem;
+	}
+
+	while(aux != NULL && aux->value < value) {
+		prev = aux;
+		aux = aux->next;
+	}
+
+	if(prev == NULL) {
+		newItem->next = list;
+		list = newItem;
+	}
+	else {
+		newItem->next = prev->next;
+		prev->next = newItem;
+	}
+
+
+	return list;
 }
