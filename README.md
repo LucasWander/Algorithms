@@ -1,4 +1,4 @@
-# Dedicado ao Estudo de Algoritmos
+# Dedicado ao Estudo de C e C++
 
 
 ## Linguagens utilizadas
