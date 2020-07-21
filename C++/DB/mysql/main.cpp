@@ -13,8 +13,8 @@
 using namespace std;
 
 const string server = "tcp://0.0.0.0:3306";
-const string username = "";
-const string password = "";
+const string username = "root";
+const string password = "my-secret-pw";
 
 int main () {
 
@@ -39,7 +39,7 @@ int main () {
     //please create database "quickstartdb" ahead of time
 
 
-    con->setSchema("quickstartdb");
+    con->setSchema("TestCpp");
 
     stmt = con->createStatement();
     stmt->execute("DROP TABLE IF EXISTS inventory");

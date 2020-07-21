@@ -59,6 +59,9 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "thread": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "hash_map": "cpp",
+        "list": "cpp",
+        "cinttypes": "cpp"
     }
 }
