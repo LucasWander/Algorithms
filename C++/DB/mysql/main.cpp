@@ -8,7 +8,6 @@
 
 #include <mysql-cppconn-8/jdbc/cppconn/prepared_statement.h>
 
-/* #include <mysql-cppconn-8/mysql/jdbc.h> */
 
 using namespace std;
 
@@ -18,7 +17,6 @@ const string password = "my-secret-pw";
 
 int main () {
 
-    /* g++ teste.cpp -lssl -lcrypto -Wall -lmysqlcppconn */
     sql::Driver *driver;
     sql::Connection *con;
     sql::Statement *stmt;
