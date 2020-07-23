@@ -35,7 +35,7 @@ main(int argc, char **argv)
     if (argc > 1)
         conninfo = argv[1];
     else
-        conninfo = "dbname = postgres";
+        conninfo = "dbname = first-db user = postgres password = pass hostaddr = 0.0.0.0";
 
     /* Make a connection to the database */
     conn = PQconnectdb(conninfo);
