@@ -6,6 +6,7 @@
  *
  *      Test the C version of libpq, the PostgreSQL frontend library.
  */
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <postgresql/libpq-fe.h>
@@ -17,25 +18,34 @@ exit_nicely(PGconn *conn)
     exit(1);
 }
 
-int
-main(int argc, char **argv)
+int defaultExample(int argc, char **argv);
+void showUser();
+
+int main(int argc, char **argv)
+{
+    //defaultExample(argc,argv);
+    showUser();
+}
+
+int defaultExample(int argc, char **argv)
 {
     const char *conninfo;
-    PGconn     *conn;
-    PGresult   *res;
-    int         nFields;
-    int         i,
-                j;
+    PGconn *conn;
+    PGresult *res;
+    int nFields;
+    int i,
+        j;
 
     /*
      * If the user supplies a parameter on the command line, use it as the
      * conninfo string; otherwise default to setting dbname=postgres and using
      * environment variables or defaults for all other connection parameters.
      */
+    // dbname = rate-races user = postgres password = pass hostaddr = 0.0.0.0
     if (argc > 1)
         conninfo = argv[1];
     else
-        conninfo = "dbname = first-db user = postgres password = pass hostaddr = 0.0.0.0";
+        conninfo = "dbname = rate-races user = postgres password = pass hostaddr = 0.0.0.0";
 
     /* Make a connection to the database */
     conn = PQconnectdb(conninfo);
@@ -129,4 +139,56 @@ main(int argc, char **argv)
     PQfinish(conn);
 
     return 0;
+}
+
+void showUser()
+{
+
+    const char *conninfo;
+    PGconn *conn;
+    PGresult *res;
+
+    const char *connInfoAux = "postgresql://postgres@localhost?port=5432&dbname=rate-races&user=postgres&password=pass";
+    conninfo = "dbname = rate-races user = postgres password = pass hostaddr = 0.0.0.0";
+
+    conn = PQconnectdb(connInfoAux);
+
+    if (PQstatus(conn) != CONNECTION_OK)
+    {
+        fprintf(stderr, "Connection to database failed: %s",
+                PQerrorMessage(conn));
+        exit_nicely(conn);
+    }
+
+    res = PQexec(conn, "select name,id from race;");
+
+
+    if (PQresultStatus(res) != PGRES_TUPLES_OK)
+    {
+        std::cout << "Select failed: " << PQresultErrorMessage(res) << std::endl;
+        PQclear(res);
+        exit_nicely(conn);
+    }
+
+    int nTuples = PQntuples(res);
+    int nFields = PQnfields(res);
+    printf("%d %d \n", nTuples, nFields);
+
+    int i, j;
+
+    /* for (i = 0; i < nFields; ++i)
+    {
+        printf("%-15s", PQfname(res, i));
+    } */
+
+    for (int i = 0; i < PQntuples(res); i++) {
+      for (int j = 0; j < PQnfields(res); j++) {
+        std::cout << PQgetvalue(res, i, j) << "   ";
+      }
+      std::cout << std::endl;
+    }
+
+    PQclear(res);
+
+    PQfinish(conn);
 }

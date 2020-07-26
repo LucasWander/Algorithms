@@ -24,7 +24,6 @@ void MysqlDB::connect() {
     catch (sql::SQLException e)
     {
         std::cout << "Could not connect to server. Error message: " << e.what() << std::endl;
-        system("pause");
         exit(1);
     }
 }
