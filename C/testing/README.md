@@ -1,12 +1,18 @@
 # Testing
 
+Testing example using [Catch2](https://github.com/catchorg/Catch2)
 
-## Commands
+# Usage
 
-    g++ test/main-test.cpp -c -o test/main-test.o
 
-    g++ factorial.c -c
+## Command to run the tests
 
-    g++ test/main-test.o factorial.o test/test-factorial.cpp -o tests.out
+```bash
+g++ test/main-test.cpp -c -o test/main-test.o
 
-    ./tests.out -r compact
+g++ factorial.c -c
+
+g++ test/main-test.o factorial.o test/test-factorial.cpp -o tests.out
+
+./tests.out -r compact
+```

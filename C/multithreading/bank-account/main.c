@@ -33,14 +33,14 @@ void *saca(void *param)
     printf("\n------Valor saque %f-------\n", value);
 
     srand(time(NULL));
-   pthread_mutex_lock(&lock);
+    pthread_mutex_lock(&lock);
 
-   sched_yield();
+    sched_yield();
     if (value <= account->balance)
     {
         sleep((rand() % 2) + 1);
         account->balance = account->balance - value;
-        printf("Balance %ld: %.2f\n", a,account->balance);
+        printf("Balance %ld: %.2f\n", a, account->balance);
         pthread_mutex_unlock(&lock);
         pthread_exit(false);
     }
@@ -77,7 +77,6 @@ int main()
 
     double withDraw = 7600;
     double deposit = 3000;
-
 
     Account account1;
     account1.balance = 8000;
