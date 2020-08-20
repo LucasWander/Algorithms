@@ -48,4 +48,5 @@ You also need to install this two packages that contains the libraries to connec
 # -lmysqlcppconn tells the compiler to link the mysql library
 
 g++ main.cpp MysqlDB.cpp PostgreDB.cpp Store.cpp User.cpp  -lpq -lmysqlcppconn
+./a.out
 ```
