@@ -30,6 +30,7 @@ You need to have a mysql database on your machine. The best away is using [docke
 
 # Create the mysql container
 docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:8.0.20
+```
 
 You also need to install this one package that contains the libraries to connect to the database
 
