@@ -1,6 +1,3 @@
-run: example1
-	./example1
-
 example1: main.o ContratoClt.o Estagio.o FolhaDePagamento.o ContratoPj.o
 	g++ main.o ContratoClt.o Estagio.o FolhaDePagamento.o ContratoPj.o -o example1.out
 

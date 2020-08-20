@@ -27,18 +27,6 @@ public:
     }
 };
 
-int aux()
-{
-    std::uint8_t penalts;
-    int a;
-
-    std::cin >> a;
-    penalts = (uint8_t)a;
-
-    std::cout << "Penalts: " << (int)penalts << std::endl;
-
-    return 0;
-}
 
 class Figure{
 
