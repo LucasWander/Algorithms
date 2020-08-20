@@ -34,7 +34,7 @@ docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d
 
 You also need to install this one package that contains the libraries to connect to the database
 
-- - [For mysql](https://dev.mysql.com/doc/connector-cpp/8.0/en/connector-cpp-introduction.html): **sudo apt-get install libboost-all-dev && sudo apt-get install libmysqlcppconn-dev** 
+- [For mysql](https://dev.mysql.com/doc/connector-cpp/8.0/en/connector-cpp-introduction.html): **sudo apt-get install libboost-all-dev && sudo apt-get install libmysqlcppconn-dev** 
 
 ## Commands to run the example
 
