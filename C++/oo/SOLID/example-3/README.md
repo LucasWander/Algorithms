@@ -36,9 +36,9 @@ docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d
 docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=pass -d postgres:12.3
 ```
 
-You also need to install this two packages that contains the libraries to connect to the databases
+You also need to install this three packages that contains the libraries to connect to the databases
 
-- [For mysql](https://dev.mysql.com/doc/connector-cpp/8.0/en/connector-cpp-introduction.html): **sudo apt-get install libboost-all-dev**
+- [For mysql](https://dev.mysql.com/doc/connector-cpp/8.0/en/connector-cpp-introduction.html): **sudo apt-get install libboost-all-dev && sudo apt-get install libmysqlcppconn-dev** 
 - [For postgresql](https://www.postgresql.org/docs/12/libpq.html): **sudo apt-get install -y libpq-dev**
 
 ## Commands to run the example
@@ -48,4 +48,5 @@ You also need to install this two packages that contains the libraries to connec
 # -lmysqlcppconn tells the compiler to link the mysql library
 
 g++ main.cpp MysqlDB.cpp PostgreDB.cpp Store.cpp User.cpp  -lpq -lmysqlcppconn
+./a.out
 ```
